@@ -11,12 +11,12 @@ let deposit = confirm("Есть ли у вас депозит в банке?");
 console.log(deposit);
 
 let showTypeOf = function (data) {
-  console.log(data, typeof (data));
+  return (data, typeof (data));
 };
 
-showTypeOf(money);
-showTypeOf(income);
-showTypeOf(deposit);
+console.log(showTypeOf(money));
+console.log(showTypeOf(income));
+console.log(showTypeOf(deposit));
 
 let addExpenses = prompt(" Перечислите возможные расходы за рассчитываемый период через запятую", "");
 console.log(addExpenses.split(", "));
@@ -33,9 +33,9 @@ let amount2 = +prompt("Во сколько это обойдется?", "");
 console.log(amount2);
 
 function getExpensesMonth() {
-  console.log(amount1 + amount2);
+  return (amount1 + amount2);
 }
-getExpensesMonth();
+console.log(getExpensesMonth());
 
 const getAccumulatedMonth = function () {
 return (money - (amount1 + amount2));
@@ -43,17 +43,16 @@ return (money - (amount1 + amount2));
 
 let accumulatedMonth = getAccumulatedMonth();
 
-
 function getTargetMonth() {
-  console.log(Math.ceil(mission / accumulatedMonth));
+  return (Math.ceil(mission / accumulatedMonth));
 }
-getTargetMonth();
+console.log(getTargetMonth());
 
 
 let budgetDay = (accumulatedMonth / 30);
 console.log(Math.floor(budgetDay) + " Доход в день");
 
-
+ 
 let getStatusIncome = function () {
   if (budgetDay >= 1200) {
     return ("У вас высокий уровень дохода");
