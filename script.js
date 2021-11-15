@@ -42,7 +42,7 @@ console.log(addExpenses.split(", "));
 
 let expenses = [];
 
-let getExpensesMonth = function getExpensesMonth() {
+let getExpensesMonth = function () {
   let sum = 0;
   for (let i = 0; i < 2; i++) {
   
