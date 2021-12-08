@@ -249,9 +249,33 @@ periodSelect.addEventListener('input', appData.getRange);
 
 };
 
+AppData.prototype.getStatusIncome = function () {
+    if (this.budgetDay === 0) {
+        return ('У вас нулевой доход');
+    } else if (this.budgetDay > 0 && this.budgetDay < 600) {
+        return ('К сожалению у вас уровень дохода ниже среднего');
+    } else if (this.budgetDay >= 600 && this.budgetDay < 1200) {
+        return ('У вас средний уровень дохода');
+    } else if (this.budgetDay >= 1200) {
+        return ('У вас высокий уровень дохода');
+    } else {
+        return ('Что-то пошло не так');
+    }
+};
 
 const appData = new AppData();
 appData.eventListeners();
 
+AppData.prototype.rangeHandler = function () {
+    periodAmount.innerText = periodSelect.value;
+};
 
+AppData.prototype.eventListeners = function () {
+    salaryAmount.addEventListener('input', appData.checkStartBtn);
+    startBtn.addEventListener('click', appData.start.bind(appData));
+    cancelBtn.addEventListener('click', appData.reset.bind(appData));
+    expensesPlus.addEventListener('click', appData.addExpensesBlock);
+    incomePlus.addEventListener('click', appData.addIncomeBlock);
+    periodSelect.addEventListener('input', appData.rangeHandler);
+};
 
